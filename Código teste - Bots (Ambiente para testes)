@@ -1,3 +1,5 @@
+# Desatualizado
+
 from FBot import *
 import pygame
 import os
