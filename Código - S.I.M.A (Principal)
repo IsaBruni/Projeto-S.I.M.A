@@ -1,0 +1,139 @@
+# S.I.M.A
+import pygame
+from mapa import *
+from FBotP import *
+
+player = Player(50, 480, 20) 
+
+#############################
+        
+mapa_1 = Mapa(50, 50, 1)                              # Cria mapa 1
+
+sala_1_mapa_1 = Sala(150, 50, 700, 350)               # Cria Sala 1 
+mapa_1.addSala(sala_1_mapa_1)                         # Add Sala 1 no mapa 1
+
+corredor_1_mapa_1 = Corredor(25, 400, 950, 150)       # Cria corredor 1
+mapa_1.addCorredor(corredor_1_mapa_1)                 # Add corredor 1 no mapa 1
+
+corredor_1_mapa_1.addPorta(Porta(950, 0, 25, 150, 2)) # Add Porta para o mapa 2 no mapa 1
+
+#############################
+
+mapa_2 = Mapa(1000 - player.x, 600 - player.y, 2)
+corredor_1_mapa_2 = Corredor(20, 400, 950, 150)
+corredor_1_mapa_2.addPorta(Porta(-20, 0, 25, 150, 1))
+corredor_1_mapa_2.addPorta(Porta(950, 0, 25, 150, 3))
+
+mapa_2.addCorredor(corredor_1_mapa_2)
+sala_1_mapa_2 = Sala(200, 50, 600, 350)
+mapa_2.addSala(sala_1_mapa_2)
+
+#############################
+
+mapa_3 = Mapa(1000 - player.x, 600 - player.y, 3)
+corredor_1_mapa_3 = Corredor(20, 400, 950, 150)
+corredor_1_mapa_3.addPorta(Porta(-20, 0, 25, 150, 2))
+
+mapa_3.addCorredor(corredor_1_mapa_3)
+sala_1_mapa_3 = Sala(200, 50, 600, 350)
+mapa_3.addSala(sala_1_mapa_3)
+
+##############   Listas   #############
+
+ListaB1 = ListaBot(15, 15, sala_1_mapa_1)
+ListaB2 = ListaBot(10, 15, sala_1_mapa_2)
+ListaB3 = ListaBot(4, 15, sala_1_mapa_3)
+
+TBots = [ListaB1, ListaB2, ListaB3]                    # Lista com todas as listas deaaaa bots
+TMapas = [mapa_1, mapa_2, mapa_3]                      # Lista com todos os mapas
+TSalas = [sala_1_mapa_1, sala_1_mapa_2, sala_1_mapa_3] # Lista com todos as salas
+
+######## Estrutura do Programa ##########
+
+class Game():
+    def __init__(self, screenSize=(1000, 600), fps=60, title='S.I.M.A', icon=None):
+        
+        self.gameRunning = True
+        self.screenSize = screenSize
+        self.title = title
+        self.icon = icon
+        self.fps = fps
+        
+        self.initGame()
+
+    def initGame(self):
+        # Define a Tela, fonte e "relógio" da simulação
+        self.screen = pygame.display.set_mode(self.screenSize)
+        pygame.display.set_caption(self.title)
+
+        if(self.icon != None):
+            pygame.display.set_icon(self.icon)
+        
+        pygame.font.init()
+
+        self.gameClock = pygame.time.Clock()
+        self.gameFont = pygame.font.SysFont('Arial', 25)
+
+        self.mapa_atual = TMapas[0]
+        self.bot_atual = TBots[0]
+        self.sala_atual = TSalas[0]
+
+    def gameMain(self):
+        # Limpa/ atualiza a tela, marca o tempo e realiza as etapas da simulação
+        while self.gameRunning:
+            self.deltaTime = self.gameClock.tick(self.fps)
+
+            for event in pygame.event.get():
+                self.gameEvent(event)
+
+            self.gameUpdate()
+            self.gameRender()
+
+            pygame.display.update()
+
+        pygame.display.quit()   
+
+    def gameEvent(self, event):     
+        # Verifica se o "QUIT" ou "ESC" foram precionados, se sim, fecha a simulação
+        if(event.type == pygame.QUIT):
+            self.gameRunning = False
+        if(event.type == pygame.KEYDOWN):
+            if(event.key == pygame.K_ESCAPE):
+                self.gameRunning = False
+
+    def gameUpdate(self):
+        # Retorna a tecla precionada
+        keys = pygame.key.get_pressed()
+        
+        # Muda o Mapa atual
+        self.mapa_atual, self.bot_atual, self.sala_atual = MudaMapa(player, self.mapa_atual, self.bot_atual, self.sala_atual, TMapas, TBots, TSalas)
+
+        # Nº de pessoas na sala
+        self.NP = NPessoas(self.bot_atual, player, self.sala_atual)
+
+        # Atualiza os Bots que estão na tela
+        Atualiza(self.bot_atual, self.sala_atual, self.deltaTime, player, keys, self.screen)
+
+    def gameRender(self):
+        # Limpa a Tela
+        self.screen.fill((70,130,180))
+
+        # Desenha o mapa atual com suas salas e corredores
+        CriaMapa(self.mapa_atual, self.screen)
+
+        # Porta Fake
+        pygame.draw.rect(self.screen, (210, 180, 140) ,(425, 390, 150, 25))
+
+        # Desenha os bots atuais
+        DesenhaBots(self.bot_atual, self.screen)
+        
+
+        # Desenhando personagem
+        pygame.draw.circle(self.screen, player.color, (player.x, player.y), player.r)
+
+        # Mostra o nº de pessoas na sala
+        N = self.gameFont.render(f'Nº de pessoas na sala: {self.NP}', True, (255, 255, 255))
+        self.screen.blit(N, (10, 5))
+
+game = Game()
+game.gameMain()
