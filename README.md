@@ -13,5 +13,5 @@ Ferramentas:
   a profundidade, o distanciamento desejado e a quantidade de pessoas dentro da sala. O próprio programa calcula a quantidade máxima de pessoas que a sala 
   (com os parâmetros inseridos pelo usuário) comporta de acordo com o distanciamento também inserido.
   
-- Alepm disso, o S.I.M.A. conta com avisos do número de pessoas dentro da sala, do número máximo possível de pessoas (sem infringir o distanciamento) e alertas
+- Além disso, o S.I.M.A. conta com avisos do número de pessoas dentro da sala, do número máximo possível de pessoas (sem infringir o distanciamento) e alertas
   de segurança (caso a sala chegue no seu limite máximo de pessoas).
