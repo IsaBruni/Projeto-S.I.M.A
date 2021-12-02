@@ -15,3 +15,6 @@ Ferramentas:
   
 - Além disso, o S.I.M.A. conta com avisos do número de pessoas dentro da sala, do número máximo possível de pessoas (sem infringir o distanciamento) e alertas
   de segurança (caso a sala chegue no seu limite máximo de pessoas).
+  
+  Link S.I.M.A.zip:
+  https://drive.google.com/drive/folders/1Xp484PndcTnnQOWrL_iimcENsJ-V41Y2?usp=sharing
