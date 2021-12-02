@@ -2,7 +2,7 @@
 Projeto para a disciplina de Computação Científica em Python (LOM3260) - EEL/USP
 
 Proposta: Criação de um sistema inteligente de monitoramento de aglomeração (S.I.M.A.) utilizando o Python, 
-que detecta quando o distanciamento escollhido pelo usuário é violado.
+que detecta quando o distanciamento escolhido pelo usuário é violado.
 
 Inspiração: Pandemia de COVID-19.
 
