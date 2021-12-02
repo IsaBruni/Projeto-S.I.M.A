@@ -1,5 +1,6 @@
 # Projeto-S.I.M.A
 Projeto para a disciplina de Computação Científica em Python (LOM3260) - EEL/USP
+Docente responsável: Luiz Tadeu Fernandes Eleno
 
 Proposta: Criação de um sistema inteligente de monitoramento de aglomeração (S.I.M.A.) utilizando o Python, 
 que detecta quando o distanciamento escolhido pelo usuário é violado.
