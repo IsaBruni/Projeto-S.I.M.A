@@ -25,5 +25,5 @@ Ferramentas:
   - Miguel Angelo Machado Rodrigues (12609780)
 
   
-  Link S.I.M.A.zip:
+  Link S.I.M.A.zip (todos os arquivos do programa):
   https://drive.google.com/drive/folders/1Xp484PndcTnnQOWrL_iimcENsJ-V41Y2?usp=sharing
