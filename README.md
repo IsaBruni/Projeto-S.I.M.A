@@ -16,5 +16,13 @@ Ferramentas:
 - Além disso, o S.I.M.A. conta com avisos do número de pessoas dentro da sala, do número máximo possível de pessoas (sem infringir o distanciamento) e alertas
   de segurança (caso a sala chegue no seu limite máximo de pessoas).
   
+  Desenvolvedores:
+  - Isabela Bruni Moraes (12609752)
+  - Lucas Rodini Amato (12624291)
+  - Luisa Kuymjian Belentani (12548188)
+  - Marcos Rafael da Silva (12611755)
+  - Miguel Angelo Machado Rodrigues (12609780)
+
+  
   Link S.I.M.A.zip:
   https://drive.google.com/drive/folders/1Xp484PndcTnnQOWrL_iimcENsJ-V41Y2?usp=sharing
