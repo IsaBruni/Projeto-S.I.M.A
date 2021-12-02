@@ -6,7 +6,7 @@ Docente responsável: Luiz Tadeu Fernandes Eleno
 Proposta: Criação de um sistema inteligente de monitoramento de aglomeração (S.I.M.A.) utilizando o Python, 
 que detecta quando o distanciamento escolhido pelo usuário é violado.
 
-Inspiração: Pandemia de COVID-19.
+Inspiração: Pandemia causada pelo COVID-19.
 
 Utilização: Para utilizar o S.I.M.A., o usuário deve ter o Python baixado, assim como as bibliotecas utilizadas: Tkinter, numpy, pygame e ramdom.
 
