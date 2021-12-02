@@ -17,6 +17,7 @@ Ferramentas:
   de segurança (caso a sala chegue no seu limite máximo de pessoas).
   
   Desenvolvedores:
+  Grupo 5
   - Isabela Bruni Moraes (12609752)
   - Lucas Rodini Amato (12624291)
   - Luisa Kuymjian Belentani (12548188)
